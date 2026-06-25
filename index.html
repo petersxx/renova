@@ -24,7 +24,7 @@
       --accent: #7ab1c5;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -996,8 +996,10 @@
       .projects-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .about-years { left: 0; top: 0; }
+      .about-img-accent { right: 0; bottom: 0; }
       .hero-btns { flex-direction: column; }
       .testi-card { flex: 0 0 100%; }
+      .about-img-wrap { overflow: hidden; }
     }
     @media (max-width: 480px) {
       .hero-content { width: 100%; }
