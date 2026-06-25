@@ -137,6 +137,7 @@
       z-index: 2;
       padding: 0 5%;
       max-width: 780px;
+      width: 100%;
     }
     .hero-tag {
       display: inline-block;
@@ -153,12 +154,14 @@
     .hero-title {
       font-family: 'Inter', sans-serif;
       font-weight: 900;
-      font-size: clamp(2.8rem, 6.5vw, 5rem);
-      line-height: 1.0;
+      font-size: clamp(1.6rem, 7vw, 5rem);
+      line-height: 1.05;
       color: var(--white);
       text-transform: uppercase;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .hero-title em {
       color: var(--red);
