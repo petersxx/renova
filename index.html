@@ -1017,6 +1017,7 @@
     }
     .reveal-right.visible { opacity: 1; transform: translateX(0); }
   </style>
+  <link rel="preload" as="image" href="img/hero-1.webp" fetchpriority="high" />
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -1047,10 +1048,10 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-slides">
-    <div class="hero-slide active" style="background-image: url('img/hero-1.jpg')"></div>
-    <div class="hero-slide" style="background-image: url('img/hero-2.jpg')"></div>
-    <div class="hero-slide" style="background-image: url('img/hero-3.jpg')"></div>
-    <div class="hero-slide" style="background-image: url('img/hero-4.jpg'); background-position: center 40%;"></div>
+    <div class="hero-slide active" style="background-image: url('img/hero-1.webp')"></div>
+    <div class="hero-slide" style="background-image: url('img/hero-2.webp')"></div>
+    <div class="hero-slide" style="background-image: url('img/hero-3.webp')"></div>
+    <div class="hero-slide" style="background-image: url('img/hero-4.webp'); background-position: center 40%;"></div>
   </div>
   <div class="hero-content">
     <div class="hero-tag">Constructora de confianza</div>
@@ -1197,8 +1198,8 @@
   <div class="projects-grid reveal">
     <div class="proj-card proj-card-3d">
       <model-viewer
-        src="img/modelo.glb"
-        poster="img/proyecto-residencial.jpg"
+        data-src="img/modelo.glb"
+        poster="img/proyecto-residencial.webp"
         auto-rotate
         rotation-per-second="12deg"
         interaction-prompt="none"
@@ -1211,21 +1212,21 @@
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="img/proyecto-residencial.jpg" alt="Proyecto Residencial RENOVA" style="object-position: center 65%;" />
+      <img class="proj-img" src="img/proyecto-residencial.webp" alt="Proyecto Residencial RENOVA" loading="lazy" style="object-position: center 65%;" />
       <div class="proj-overlay">
         <div class="proj-cat">Residencial · 2025</div>
         <div class="proj-name">Proyecto Residencial</div>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="img/living-comedor.jpg" alt="Living Comedor RENOVA" style="object-position: center 40%;" />
+      <img class="proj-img" src="img/living-comedor.webp" alt="Living Comedor RENOVA" loading="lazy" style="object-position: center 40%;" />
       <div class="proj-overlay">
         <div class="proj-cat">Residencial · 2025</div>
         <div class="proj-name">Living Comedor</div>
       </div>
     </div>
     <div class="proj-card">
-      <img class="proj-img" src="img/interior-2.png" alt="Render Interior RENOVA" />
+      <img class="proj-img" src="img/interior-2.webp" alt="Render Interior RENOVA" loading="lazy" />
       <div class="proj-overlay">
         <div class="proj-cat">Render · 2025</div>
         <div class="proj-name">Sala de Estar</div>
@@ -1256,9 +1257,9 @@
     <p class="ad-subtitle">Arrastrá el slider para ver la transformación</p>
   </div>
   <div class="compare-wrap reveal" id="compareWrap">
-    <img class="compare-after" src="img/despues.png" alt="Obra terminada" />
+    <img class="compare-after" src="img/despues.webp" alt="Obra terminada" loading="lazy" />
     <div class="compare-before-wrap" id="beforeWrap">
-      <img class="compare-before" src="img/antes.png" alt="Proyecto" id="beforeImg" />
+      <img class="compare-before" src="img/antes.webp" alt="Proyecto" id="beforeImg" loading="lazy" />
     </div>
     <div class="compare-divider" id="compareDivider">
       <div class="compare-handle">
@@ -1726,6 +1727,19 @@
     divider.addEventListener('touchstart', e => { dragging = true; onInteract(); e.preventDefault(); }, { passive: false });
     window.addEventListener('touchend', () => { dragging = false; });
     window.addEventListener('touchmove', e => { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+  })();
+
+  // ── LAZY LOAD 3D MODEL ──
+  (function() {
+    const mv = document.querySelector('model-viewer[data-src]');
+    if (!mv) return;
+    const obs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        mv.setAttribute('src', mv.dataset.src);
+        obs.disconnect();
+      }
+    }, { threshold: 0.1 });
+    obs.observe(mv);
   })();
 
   // ── FORM ──
