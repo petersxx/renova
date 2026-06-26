@@ -2135,10 +2135,7 @@
   </div>
   <div class="contact-form reveal-right">
     <form id="contactForm" onsubmit="handleSubmit(event)">
-      <input type="hidden" name="access_key" value="b5032cdd-7e50-47fb-b1c3-6d85e96a6d0d" />
-      <input type="hidden" name="subject" value="Nueva consulta desde RENOVA Constructora" />
-      <input type="hidden" name="from_name" value="RENOVA Web" />
-      <input type="checkbox" name="botcheck" style="display:none" />
+
       <div class="form-row">
         <div class="form-group">
           <label for="f-nombre">Nombre</label>
@@ -2435,40 +2432,21 @@
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const btn = form.querySelector('.form-submit');
-    const origText = btn.textContent;
+    const nombre  = form.querySelector('#f-nombre').value.trim();
+    const email   = form.querySelector('#f-email').value.trim();
+    const tel     = form.querySelector('#f-tel').value.trim();
+    const terreno = form.querySelector('#f-tipo').value;
+    const msg     = form.querySelector('#f-msg').value.trim();
 
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
+    let texto = `Hola, me comunico desde la web de RENOVA.\n\n`;
+    texto += `*Nombre:* ${nombre}\n`;
+    if (email)   texto += `*Email:* ${email}\n`;
+    if (tel)     texto += `*Teléfono:* ${tel}\n`;
+    if (terreno) texto += `*¿Tenés terreno?* ${terreno}\n`;
+    if (msg)     texto += `\n*Proyecto:* ${msg}`;
 
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: new FormData(form)
-    })
-    .then(res => res.json())
-    .then(json => {
-      if (json.success) {
-        btn.textContent = '¡Mensaje enviado! ✓';
-        btn.style.background = '#1a7a1a';
-        form.reset();
-        setTimeout(() => {
-          btn.textContent = origText;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
-      } else {
-        throw new Error(json.message || 'Error desconocido');
-      }
-    })
-    .catch(() => {
-      btn.textContent = 'Error al enviar. Intentá de nuevo.';
-      btn.style.background = '#888';
-      setTimeout(() => {
-        btn.textContent = origText;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 4000);
-    });
+    window.open(`https://wa.me/595985111111?text=${encodeURIComponent(texto)}`, '_blank');
+    form.reset();
   }
 </script>
 
