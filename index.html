@@ -1010,6 +1010,162 @@
       .strip-item { font-size: 0.72rem; }
     }
 
+    /* ── INSTAGRAM ── */
+    #instagram {
+      background: var(--black);
+      padding: 80px 0;
+      overflow: hidden;
+    }
+    .ig-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .ig-header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .ig-icon {
+      width: 54px;
+      height: 54px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .ig-header-info { display: flex; flex-direction: column; }
+    .ig-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2px;
+    }
+    .ig-handle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .ig-follow-btn {
+      background: #0095f6;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 11px 30px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .ig-follow-btn:hover { background: #0080d6; }
+
+    .ig-track-wrap {
+      overflow: hidden;
+      padding: 0;
+    }
+    .ig-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: igScroll 38s linear infinite;
+    }
+    .ig-track-wrap:hover .ig-track {
+      animation-play-state: paused;
+    }
+    @keyframes igScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ig-post-card {
+      background: var(--white);
+      width: 300px;
+      flex-shrink: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    .ig-post-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 10px 12px;
+    }
+    .ig-post-avatar {
+      width: 36px;
+      height: 36px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 900;
+      font-size: 0.42rem;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .ig-post-user { flex: 1; display: flex; flex-direction: column; }
+    .ig-post-username { font-size: 0.8rem; font-weight: 700; color: var(--black); }
+    .ig-post-time { font-size: 0.7rem; color: #999; }
+    .ig-post-more {
+      font-size: 1.1rem;
+      color: #888;
+      cursor: default;
+      padding: 0 4px;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+    .ig-post-img-wrap {
+      width: 300px;
+      height: 375px;
+      overflow: hidden;
+    }
+    .ig-post-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      draggable: false;
+    }
+    .ig-post-actions {
+      display: flex;
+      align-items: center;
+      padding: 9px 12px 5px;
+      gap: 0.75rem;
+    }
+    .ig-post-actions svg { width: 22px; height: 22px; color: var(--black); }
+    .ig-post-bookmark { margin-left: auto; }
+    .ig-post-likes {
+      padding: 0 12px 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .ig-post-caption {
+      padding: 0 12px 4px;
+      font-size: 0.78rem;
+      color: var(--black);
+      line-height: 1.5;
+    }
+    .ig-post-caption .ig-un { font-weight: 700; margin-right: 4px; }
+    .ig-post-tags { color: #00376b; }
+    .ig-post-comments {
+      padding: 2px 12px 14px;
+      font-size: 0.75rem;
+      color: #999;
+    }
+
     /* ── SCROLL ANIMATION ── */
     .reveal {
       opacity: 0;
@@ -1049,6 +1205,25 @@
     .whatsapp-float:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+    }
+    .instagram-float {
+      position: fixed;
+      bottom: 96px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      box-shadow: 0 4px 20px rgba(214,36,159,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .instagram-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(214,36,159,0.6);
     }
   </style>
   <link rel="preload" as="image" href="img/hero-1.webp" fetchpriority="high" />
@@ -1378,6 +1553,148 @@
   </div>
 </section>
 
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="ig-header">
+    <div class="ig-header-left">
+      <div class="ig-icon">
+        <svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div class="ig-header-info">
+        <span class="ig-label">Seguinos en Instagram</span>
+        <span class="ig-handle">@renova_py</span>
+      </div>
+    </div>
+    <a href="https://www.instagram.com/renova_py/" target="_blank" rel="noopener" class="ig-follow-btn">Seguir</a>
+  </div>
+
+  <div class="ig-track-wrap" id="igTrackWrap">
+    <div class="ig-track" id="igTrack">
+
+      <!-- Post 1 -->
+      <div class="ig-post-card">
+        <div class="ig-post-header">
+          <div class="ig-post-avatar">RENOVA</div>
+          <div class="ig-post-user">
+            <span class="ig-post-username">renova_py</span>
+            <span class="ig-post-time">2 d</span>
+          </div>
+          <div class="ig-post-more">···</div>
+        </div>
+        <div class="ig-post-img-wrap">
+          <img src="img/ig-vivienda-lb-exterior.png" alt="Vivienda LB exterior" loading="lazy" style="object-position: center center;" />
+        </div>
+        <div class="ig-post-actions">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <svg class="ig-post-bookmark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        </div>
+        <div class="ig-post-likes">387 Me gusta</div>
+        <div class="ig-post-caption"><span class="ig-un">renova_py</span>Vivienda LB terminada. Ladrillo, vidrio y luz natural en perfecta armonía. 🏠 <span class="ig-post-tags">#ViviendalLB #Renova #ObraTerminada</span></div>
+        <div class="ig-post-comments">Ver los 28 comentarios</div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="ig-post-card">
+        <div class="ig-post-header">
+          <div class="ig-post-avatar">RENOVA</div>
+          <div class="ig-post-user">
+            <span class="ig-post-username">renova_py</span>
+            <span class="ig-post-time">4 d</span>
+          </div>
+          <div class="ig-post-more">···</div>
+        </div>
+        <div class="ig-post-img-wrap">
+          <img src="img/ig-vivienda-lb-comparacion.png" alt="Vivienda LB proyecto vs obra" loading="lazy" style="object-position: center center;" />
+        </div>
+        <div class="ig-post-actions">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <svg class="ig-post-bookmark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        </div>
+        <div class="ig-post-likes">512 Me gusta</div>
+        <div class="ig-post-caption"><span class="ig-un">renova_py</span>Vivienda LB · Proyecto → Obra terminada. Esto es lo que hacemos en RENOVA. ✅ <span class="ig-post-tags">#ViviendalLB #ConstruccionResidencial #Paraguay</span></div>
+        <div class="ig-post-comments">Ver los 41 comentarios</div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="ig-post-card">
+        <div class="ig-post-header">
+          <div class="ig-post-avatar">RENOVA</div>
+          <div class="ig-post-user">
+            <span class="ig-post-username">renova_py</span>
+            <span class="ig-post-time">6 d</span>
+          </div>
+          <div class="ig-post-more">···</div>
+        </div>
+        <div class="ig-post-img-wrap">
+          <img src="img/ig-render-realidad.png" alt="Del render a la realidad" loading="lazy" style="object-position: center center;" />
+        </div>
+        <div class="ig-post-actions">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <svg class="ig-post-bookmark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        </div>
+        <div class="ig-post-likes">298 Me gusta</div>
+        <div class="ig-post-caption"><span class="ig-un">renova_py</span>Del render a la realidad. Cuando interior y exterior se complementan perfectamente. <span class="ig-post-tags">#Renova #ConstruccionResidencial #Arquitectura</span></div>
+        <div class="ig-post-comments">Ver los 19 comentarios</div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="ig-post-card">
+        <div class="ig-post-header">
+          <div class="ig-post-avatar">RENOVA</div>
+          <div class="ig-post-user">
+            <span class="ig-post-username">renova_py</span>
+            <span class="ig-post-time">1 sem</span>
+          </div>
+          <div class="ig-post-more">···</div>
+        </div>
+        <div class="ig-post-img-wrap">
+          <img src="img/ig-vivienda-gd.png" alt="Vivienda G&D" loading="lazy" style="object-position: center center;" />
+        </div>
+        <div class="ig-post-actions">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <svg class="ig-post-bookmark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        </div>
+        <div class="ig-post-likes">443 Me gusta</div>
+        <div class="ig-post-caption"><span class="ig-un">renova_py</span>Recorré el interior de la Vivienda G&D. Diseño, calidad y detalle en cada rincón. 👉 <span class="ig-post-tags">#ViviendeGD #Renova #Asuncion</span></div>
+        <div class="ig-post-comments">Ver los 35 comentarios</div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="ig-post-card">
+        <div class="ig-post-header">
+          <div class="ig-post-avatar">RENOVA</div>
+          <div class="ig-post-user">
+            <span class="ig-post-username">renova_py</span>
+            <span class="ig-post-time">2 sem</span>
+          </div>
+          <div class="ig-post-more">···</div>
+        </div>
+        <div class="ig-post-img-wrap">
+          <img src="img/ig-todos-dicen.png" alt="Todos dicen que construyen bien" loading="lazy" style="object-position: center 40%;" />
+        </div>
+        <div class="ig-post-actions">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <svg class="ig-post-bookmark" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+        </div>
+        <div class="ig-post-likes">621 Me gusta</div>
+        <div class="ig-post-caption"><span class="ig-un">renova_py</span>Todos dicen que construyen bien. Muy pocos lo pueden demostrar. <span class="ig-post-tags">#Renova #CalidadConstructiva #Paraguay</span></div>
+        <div class="ig-post-comments">Ver los 53 comentarios</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIOS -->
 <section id="testimonios">
   <div class="testimonios-header reveal">
@@ -1537,6 +1854,11 @@
     </form>
   </div>
 </section>
+
+<!-- INSTAGRAM FLOAT -->
+<a href="https://www.instagram.com/renova_py/" class="instagram-float" target="_blank" rel="noopener" aria-label="Seguinos en Instagram">
+  <svg width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
 
 <!-- WHATSAPP FLOAT -->
 <a href="https://wa.me/595985111111" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
@@ -1772,6 +2094,15 @@
       }
     }, { threshold: 0.1 });
     obs.observe(mv);
+  })();
+
+  // ── INSTAGRAM INFINITE CAROUSEL ──
+  (function() {
+    const track = document.getElementById('igTrack');
+    if (!track) return;
+    track.querySelectorAll('.ig-post-card').forEach(card => {
+      track.appendChild(card.cloneNode(true));
+    });
   })();
 
   // ── FORM ──
